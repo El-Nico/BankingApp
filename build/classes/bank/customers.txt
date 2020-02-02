@@ -1,0 +1,3 @@
+FName	LName	AccountNo	ACType	Balance
+John	Doe	JD-7-10-4	Savings	1000
+John	Doe	JD-7-10-4	Current	1000

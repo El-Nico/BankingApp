@@ -1,0 +1,33 @@
+login class
+employee or customer
+menu to drive program
+ 
+employee class
+create customer
+delete customer
+showlist of customers
+add money to customer, customer a
+withdraw money from customer customera
+ 
+ 
+driver class to show menu?
+ 
+customer class
+retrieve transaction history
+add to savings, subtract from savings
+add to current, subtract from current
+account balance cannot be negative**
+ 
+account class
+savings account
+current account
+create customers.txt file general log
+add customer new customer entry
+create particular customer.txt savings
+create particular customer.txt current using naming convention
+add customer savings transaction record customer a
+add customer transaction record customer a
+
+
+next to log the customer in properly while checking
+they exist, set the boilerplate for customers.txt

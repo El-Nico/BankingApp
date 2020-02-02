@@ -1,0 +1,5 @@
+FName	LName	AccountNo	ACType	Balance
+John	Doe	JD-7-10-4	Savings	1000
+John	Doe	JD-7-10-4	Current	1000
+nicholas	mbenkuwa	nm-16-14-13	Savings0.00
+nicholas	mbenkuwa	nm-16-14-13	Current0.00
