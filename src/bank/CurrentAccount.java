@@ -10,5 +10,5 @@ package bank;
  * @author 18630
  */
 public class CurrentAccount extends Account{
-    
+    public static double overdrawLimit=1500;
 }

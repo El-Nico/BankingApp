@@ -3,24 +3,24 @@ employee or customer
 menu to drive program
  
 employee class
-create customer
-delete customer
-showlist of customers
-add money to customer, customer a
-withdraw money from customer customera
+create customer doneo
+                                delete customer not done
+showlist of customers easy deductive
+add money to customer done, customer a
+withdraw money from customer customera doable
  
  
 driver class to show menu?
  
 customer class
-retrieve transaction history
-add to savings, subtract from savings
-add to current, subtract from current
-account balance cannot be negative**
+retrieve transaction history easy read
+add to savings done, subtract from savings deductive?
+add to current dono, subtract from current dedictove?
+account balance cannot be negative** deductive?
  
-account class
-savings account
-current account
+                                account class nope
+                                    savings account nope
+                                    current account nope
 create customers.txt file general log
 add customer new customer entry
 create particular customer.txt savings

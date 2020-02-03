@@ -153,15 +153,19 @@ public class runnerLogin implements DailyOperations {
                             System.out.println("customer created");
                             break;
                         case "2":
+                            new BankEmployee().deleteCustomerAccount();
                             System.out.println("customer deleted");
                             break;
                         case "3":
+                            new BankEmployee().showCustomerList();
                             System.out.println("customer list shown");
                             break;
                         case "4":
+                            new BankEmployee().addToCustomerAccount();
                             System.out.println("money added to customer account");
                             break;
                         case "5":
+                            new BankEmployee().withdrawFromCustomerAccount();
                             System.out.println("money withdrawn from customer account");
                             break;
                         case "exit":
@@ -193,11 +197,11 @@ public class runnerLogin implements DailyOperations {
                 FileWriter writer = new FileWriter(workingDirectory, true);
                 BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
-                bufferedWriter.write("FName\tLName\tAccountNo\tACType\tBalance");
+                bufferedWriter.write("FName\tLName\tAccountNo\tACType");
                 bufferedWriter.newLine();
-                bufferedWriter.write("John\tDoe\t" + generateAccountNumber("John", "Doe") + "\tSavings\t1000");
+                bufferedWriter.write("John\tDoe\t" + generateAccountNumber("John", "Doe") + "\tSavings");
                 bufferedWriter.newLine();
-                bufferedWriter.write("John\tDoe\t" + generateAccountNumber("John", "Doe") + "\tCurrent\t1000");
+                bufferedWriter.write("John\tDoe\t" + generateAccountNumber("John", "Doe") + "\tCurrent");
                 bufferedWriter.newLine();
                 bufferedWriter.close();
             }
@@ -208,6 +212,14 @@ public class runnerLogin implements DailyOperations {
 
     protected String generateAccountNumber(String firstName, String lastName) {
         //The output you are expecting is just the offset of a upper case letter with respect to 'A'. So just subtract the Unicode value of 'A' from the unicode value of the letter whose offset is needed.
+        System.out.println(String.valueOf(firstName.charAt(0))
+                + String.valueOf(lastName.charAt(0))
+                + "-"
+                + String.valueOf(firstName.concat(lastName).length())
+                + "-"
+                + String.valueOf((firstName.toLowerCase().charAt(0) - 'a') + 1)
+                + "-"
+                + String.valueOf((lastName.toLowerCase().charAt(0) - 'a') + 1));
         return String.valueOf(firstName.charAt(0))
                 + String.valueOf(lastName.charAt(0))
                 + "-"
