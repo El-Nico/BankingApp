@@ -14,32 +14,38 @@ import java.util.logging.Logger;
  *
  * @author 18630
  */
-public class Customer { 
+public class Customer {
+
     double currentBalance;
     double savingsBalance;
     String accountType;
     String accountNumber;
     String transactionFileName;
-    public Customer(String accountNumber, double balance, String accountType, String transactionFileName){
-      this.accountNumber=accountNumber;
-      if(accountType.equals("savings")){
-          this.accountType= accountType;
-          setSavingsBalance(balance);
-      }
-      else if(accountType.equals("current")){
-        this.accountType= accountType;
-          setCurrentBalance(balance);
-      }
-      else{
-          try {
-              throw new Exception("the accountType is not spelled correctly try 'savings' || 'current' ");
-          } catch (Exception e) {
-             e.printStackTrace();
-          }
+    String pin;
+
+    public Customer(String accountNumber, double balance, String accountType, String transactionFileName) {
+        this.accountNumber = accountNumber;
+        if (accountType.equals("savings")) {
+            this.accountType = accountType;
+            setSavingsBalance(balance);
+        } else if (accountType.equals("current")) {
+            this.accountType = accountType;
+            setCurrentBalance(balance);
+        } else {
+            try {
+                throw new Exception("the accountType is not spelled correctly try 'savings' || 'current' ");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        this.transactionFileName = transactionFileName;
     }
-      this.transactionFileName=transactionFileName;
+
+    public Customer(String accountNumber, String pin) {
+        this.accountNumber = accountNumber;
+        this.pin = pin;
     }
- 
+
     public double getSavingsBalance() {
         return savingsBalance;
     }
@@ -55,5 +61,29 @@ public class Customer {
     public double getCurrentBalance() {
         return currentBalance;
     }
-    
+
+    void requestTransactionHistory(BankEmployee bankEmployee) {
+        bankEmployee.customerTransactionHistory(this);
+    }
+
+    void depositSavings(BankEmployee bankEmployee) {
+        bankEmployee.addToCustomerAccount(this, "savings");
+    }
+
+    void depositCurrent(BankEmployee bankEmployee) {
+        bankEmployee.addToCustomerAccount(this, "current");
+    }
+
+    void withdrawSavings(BankEmployee bankEmployee) {
+        bankEmployee.withdrawFromCustomerAccount(this, "savings");
+    }
+
+    void withdrawCurrent(BankEmployee bankEmployee) {
+        bankEmployee.withdrawFromCustomerAccount(this, "current");
+    }
+
+    String getAccountNumber() {
+        return accountNumber;
+    }
+
 }

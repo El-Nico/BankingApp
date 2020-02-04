@@ -31,3 +31,6 @@ add customer transaction record customer a
 
 next to log the customer in properly while checking
 they exist, set the boilerplate for customers.txt
+akpuku	james-milner	aj-18-1-10	Current
+aj-18-1-10
+john	funambu	jf-11-10-6	Savings
