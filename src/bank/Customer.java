@@ -1,15 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bank;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author 18630
@@ -25,18 +15,21 @@ public class Customer {
 
     public Customer(String accountNumber, double balance, String accountType, String transactionFileName) {
         this.accountNumber = accountNumber;
-        if (accountType.equals("savings")) {
-            this.accountType = accountType;
-            setSavingsBalance(balance);
-        } else if (accountType.equals("current")) {
-            this.accountType = accountType;
-            setCurrentBalance(balance);
-        } else {
-            try {
-                throw new Exception("the accountType is not spelled correctly try 'savings' || 'current' ");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        switch (accountType) {
+            case "savings":
+                this.accountType = accountType;
+                setSavingsBalance(balance);
+                break;
+            case "current":
+                this.accountType = accountType;
+                setCurrentBalance(balance);
+                break;
+            default:
+                try {
+                    throw new Exception("the accountType is not spelled correctly try 'savings' || 'current' ");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }   break;
         }
         this.transactionFileName = transactionFileName;
     }
@@ -61,7 +54,12 @@ public class Customer {
     public double getCurrentBalance() {
         return currentBalance;
     }
+    
+    String getAccountNumber() {
+        return accountNumber;
+    }
 
+    //employee action methods
     void requestTransactionHistory(BankEmployee bankEmployee) {
         bankEmployee.customerTransactionHistory(this);
     }
@@ -81,9 +79,4 @@ public class Customer {
     void withdrawCurrent(BankEmployee bankEmployee) {
         bankEmployee.withdrawFromCustomerAccount(this, "current");
     }
-
-    String getAccountNumber() {
-        return accountNumber;
-    }
-
 }

@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bank;
 
 /**
  *
  * @author 18630
  */
+//inherits from the abstract class Account
 public class CurrentAccount extends Account{
     public static double overdrawLimit=1500;
 }

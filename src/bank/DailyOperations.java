@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bank;
 
 /**
  *
  * @author 18630
  */
+//this interface defines daily operations in a cooperates setting and is implemented by the BankManager class
 public interface DailyOperations {
     public void run();
 }

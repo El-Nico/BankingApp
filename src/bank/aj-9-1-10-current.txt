@@ -1,2 +1,0 @@
-Date	Action	AMT	Balance
-2020-02-03T20:58:49.905	created	0.0	0.0

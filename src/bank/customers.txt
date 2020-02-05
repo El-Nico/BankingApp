@@ -1,18 +1,5 @@
-FName	LName	AccountNo	ACType
-John	Doe	JD-7-10-4	Savings
-John	Doe	JD-7-10-4	Current
-akpuku	james-milner	aj-18-1-10	Savings
-akpuku	james-milner	aj-18-1-10	Current
-lord	sanogo	ls-10-12-19	Savings
-lord	sanogo	ls-10-12-19	Current
-patrick	kavanagh	pk-15-16-11	Savings
-patrick	kavanagh	pk-15-16-11	Current
-john	funambu	jf-11-10-6	Savings
-john	funambu	jf-11-10-6	Current
-akufu	ulonnu	au-11-1-21	Savings
-akufu	ulonnu	au-11-1-21	Current
-juju	man	jm-7-10-13	Savings
-juju	man	jm-7-10-13	Current
-anodu	juju	aj-9-1-10	Savings
-anodu	juju	aj-9-1-10	Current
-mgbotuwa	nibo	mn-12-13-14	Current
+FName	LName	AccountNo	Pin	ACType
+John	Doe	jd-7-10-4	10-4	savings
+John	Doe	jd-7-10-4	10-4	current
+exit	exit	ee-8-5-5	-5-5	savings
+exit	exit	ee-8-5-5	-5-5	current
