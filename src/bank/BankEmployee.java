@@ -15,7 +15,7 @@ public class BankEmployee extends BankManager {
 
     ///////////////////////////////////////////////////////Methods implementing customer request//////////////////////////////////////
     //will print the customers transaction history
-    void customerTransactionHistory(Customer customer) {
+    protected void customerTransactionHistory(Customer customer) {
         //get account type
         Scanner inType = new Scanner(System.in);
         System.out.println("Current or Savings?");
@@ -57,7 +57,7 @@ public class BankEmployee extends BankManager {
 
     }
 
-    public void addToCustomerAccount(Customer customer, String acType) {
+    protected void addToCustomerAccount(Customer customer, String acType) {
         //log the transaction and increase the balance
         Scanner inDetails = new Scanner(System.in);
         if (new File(getWorkingDirectory() + "/" + getTransactionFileName(customer.getAccountNumber(), acType)).exists()) {
@@ -102,7 +102,7 @@ public class BankEmployee extends BankManager {
 
     }
 
-    public void withdrawFromCustomerAccount(Customer customer, String acType) {
+    protected void withdrawFromCustomerAccount(Customer customer, String acType) {
         //get the account number and type
         Scanner inDetails = new Scanner(System.in);
 

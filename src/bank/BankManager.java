@@ -22,7 +22,7 @@ public class BankManager implements DailyOperations {
     }
 
     @Override
-    public void run() {
+    public void runDailyOperations() {
         boolean mainExit = false;
         do {
             Scanner inOptions = new Scanner(System.in);
@@ -594,7 +594,7 @@ public class BankManager implements DailyOperations {
     }
 
     //return the transaction file name of a customer
-    public String getTransactionFileName(String accNo, String accType) {
+    protected String getTransactionFileName(String accNo, String accType) {
         return accNo + "-" + accType.toLowerCase() + ".txt";
     }
 
