@@ -7,10 +7,12 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
- *
  * @author 18630
+ *  Nicholas Chibuike-Eruba
+ * 18630
  */
 public class BankEmployee extends BankManager {
+
     ///////////////////////////////////////////////////////Methods implementing customer request//////////////////////////////////////
     //will print the customers transaction history
     void customerTransactionHistory(Customer customer) {

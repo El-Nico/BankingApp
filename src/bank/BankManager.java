@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
- *
  * @author el-nico
  */
 public class BankManager implements DailyOperations {
@@ -65,25 +64,25 @@ public class BankManager implements DailyOperations {
                     + " you may enter exit to exit the login menu at any point\n"
                     + "please enter your first name"
             );
-            String fName = inOptions.nextLine();
+            String fName = inOptions.nextLine().toLowerCase();
             if (fName.equals("exit")) {
                 System.out.println("you exited the login menu");
                 break;
             }
             System.out.println("enter your last name");
-            String lName = inOptions.nextLine();
+            String lName = inOptions.nextLine().toLowerCase();
             if (lName.equals("exit")) {
                 System.out.println("you exited the login menu");
                 break;
             }
             System.out.println("enter your account number");
-            String acNo = inOptions.nextLine();
+            String acNo = inOptions.nextLine().toLowerCase();
             if (acNo.equals("exit")) {
                 System.out.println("you exited the login menu");
                 break;
             }
             System.out.println("and finally the pin\n");
-            String pin = inOptions.nextLine();
+            String pin = inOptions.nextLine().toLowerCase();
             if (pin.equals("exit")) {
                 System.out.println("you exited the login menu");
                 break;
@@ -109,23 +108,28 @@ public class BankManager implements DailyOperations {
                     switch (customerActionsMenuChoice) {
                         //polymorphism is used to specify that a manager of type employee is needed to attend the customers needs
                         case "1":
-                            thisCustomer.requestTransactionHistory((BankEmployee) new BankManager());
+                            BankManager rt = new BankEmployee();
+                            thisCustomer.requestTransactionHistory((BankEmployee) rt);
                             System.out.println("transaction history retrieved");
                             break;
                         case "2":
-                            thisCustomer.depositSavings((BankEmployee) new BankManager());
+                            BankManager ds = new BankEmployee();
+                            thisCustomer.depositSavings((BankEmployee) ds);
                             System.out.println("savings deposited");
                             break;
                         case "3":
-                            thisCustomer.depositCurrent((BankEmployee) new BankManager());
+                            BankManager dc = new BankEmployee();
+                            thisCustomer.depositCurrent((BankEmployee) dc);
                             System.out.println("current deposited");
                             break;
                         case "4":
-                            thisCustomer.withdrawSavings((BankEmployee) new BankManager());
+                            BankManager ws = new BankEmployee();
+                            thisCustomer.withdrawSavings((BankEmployee) ws);
                             System.out.println("savings withdrawn");
                             break;
                         case "5":
-                            thisCustomer.withdrawCurrent((BankEmployee) new BankManager());
+                            BankManager wc = new BankEmployee();
+                            thisCustomer.withdrawCurrent((BankEmployee) wc);
                             System.out.println("current withdrawn");
                             break;
                         case "exit":
@@ -228,10 +232,6 @@ public class BankManager implements DailyOperations {
 
                 bufferedWriter.write("FName\tLName\tAccountNo\tPin\tACType");
                 bufferedWriter.newLine();
-                bufferedWriter.write("John\tDoe\t" + generateAccountNumber("John", "Doe") + "\t" + generatePin(generateAccountNumber("John", "Doe")) + "\tsavings");
-                bufferedWriter.newLine();
-                bufferedWriter.write("John\tDoe\t" + generateAccountNumber("John", "Doe") + "\t" + generatePin(generateAccountNumber("John", "Doe")) + "\tcurrent");
-                bufferedWriter.newLine();
                 bufferedWriter.close();
             }
         } catch (Exception e) {
@@ -259,11 +259,11 @@ public class BankManager implements DailyOperations {
         ///get the customer firstname, lastname and email
         Scanner inDetails = new Scanner(System.in);
         System.out.println("thankyou for choosing to create and account with us\n"
-                + "please insert your first name");
+                + "please insert first name");
         String firstName = inDetails.nextLine();
-        System.out.println("now insert your last name");
+        System.out.println("now insert last name");
         String lastName = inDetails.nextLine();
-        System.out.println("and finally your email");
+        System.out.println("and finally email");
         String email = inDetails.nextLine();
         System.out.println("we will now create your account");
 
@@ -403,11 +403,9 @@ public class BankManager implements DailyOperations {
                 System.out.println("the customer cannot be deleted because their balance is greater than the overdraw limit");
             }
 
-        } 
-        else if(acNo.equals("jd-7-10-4")){
+        } else if (acNo.equals("jd-7-10-4")) {
             System.out.println("this customer is a legend and cannot be deleted");
-        }
-        else {
+        } else {
             System.out.println("the customer account does not exist, you should create the customer first or insert the correct acount number and type");
         }
     }
@@ -477,7 +475,7 @@ public class BankManager implements DailyOperations {
         if (new File(getWorkingDirectory() + "/" + getTransactionFileName(acNo, acType)).exists()) {
             double amt = 0.00;
             boolean initializedProposedAmount = false;
-            System.out.println("how much would you like to add to this account");
+            System.out.println("how much would you like to withdraw from this account");
             do {//get the proposed amount
 
                 //check if a double and not negative
@@ -616,7 +614,19 @@ public class BankManager implements DailyOperations {
 
     //generate the customer pin
     protected String generatePin(String accountNo) {
-        return accountNo.substring(accountNo.length() - 4);
+        int substringFrom = 0;
+        String pin = "";
+        for (int i = 0, hyphenIndex = 2; i < accountNo.length(); i++) {
+            if (accountNo.charAt(i) == '-') {
+                hyphenIndex--;
+            }
+            if (hyphenIndex == 0) {
+                pin = accountNo.substring(++i);
+                break;
+            }
+        }
+
+        return pin;
     }
 
     //verify there is a line entry with given details in customers.txt file
@@ -626,9 +636,7 @@ public class BankManager implements DailyOperations {
             BufferedReader reader = new BufferedReader(new FileReader(getWorkingDirectory() + "/customers.txt"));
 
             String currentLine;
-            int lineIndex = 0;
             while ((currentLine = reader.readLine()) != null) {
-                System.out.println(lineIndex);
                 if (null != currentLine
                         && currentLine.contains(fName)
                         && currentLine.contains(lName)
@@ -636,7 +644,6 @@ public class BankManager implements DailyOperations {
                         && currentLine.contains(pin)) {
                     return true;
                 }
-                lineIndex++;
             }
             reader.close();
         } catch (Exception e) {

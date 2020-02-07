@@ -1,8 +1,7 @@
-
 package bank;
+
 /**
- *
- * @author 18630
+ * @author 18630 Nicholas Chibuike-Eruba 18630
  */
 public class Customer {
 
@@ -29,7 +28,8 @@ public class Customer {
                     throw new Exception("the accountType is not spelled correctly try 'savings' || 'current' ");
                 } catch (Exception e) {
                     e.printStackTrace();
-                }   break;
+                }
+                break;
         }
         this.transactionFileName = transactionFileName;
     }
@@ -54,7 +54,7 @@ public class Customer {
     public double getCurrentBalance() {
         return currentBalance;
     }
-    
+
     String getAccountNumber() {
         return accountNumber;
     }

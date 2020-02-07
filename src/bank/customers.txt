@@ -1,5 +1,0 @@
-FName	LName	AccountNo	Pin	ACType
-John	Doe	jd-7-10-4	10-4	savings
-John	Doe	jd-7-10-4	10-4	current
-exit	exit	ee-8-5-5	-5-5	savings
-exit	exit	ee-8-5-5	-5-5	current

@@ -1,7 +1,7 @@
 FName	LName	AccountNo	Pin	ACType
-John	Doe	JD-7-10-4	10-4	savings
-John	Doe	JD-7-10-4	10-4	current
-hanki	panki	hp-10-8-16	8-16	savings
-hanki	panki	hp-10-8-16	8-16	current
-junkie	dankie	jd-12-10-4	10-4	savings
-junkie	dankie	jd-12-10-4	10-4	current
+first	cusstomer	fc-14-6-3	6-3	savings
+first	cusstomer	fc-14-6-3	6-3	current
+nesxt customer	customer	nc-22-14-3	14-3	savings
+nesxt customer	customer	nc-22-14-3	14-3	current
+hmmmmm	dklsak	hd-12-8-4	8-4	savings
+hmmmmm	dklsak	hd-12-8-4	8-4	current
